@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/scss/app.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="wrapper">
+                <div class="inner">
+                    <header class="heading">
+                        <h1 class="heading__title">Add New Facebook Pixel</h1>
+                    </header>
+                    <main class="main">
+                        <div class="main__input-pixel">
+                            <div class="main__dashboard" :class="{main__active:isAuto}">
+                                <input @click="isAuto = !isAuto" type="radio" name="pixel" id="radio-left" checked>
+                                <label for="radio-left">Auto input pixel</label>
+                            </div>
+                            <div class="main__dashboard" :class="{main__active:!isAuto}">
+                                <input @click="isAuto = !isAuto" type="radio" name="pixel" id="radio-right">
+                                <label for="radio-right">Manual input pixel</label>
+                            </div>
+                        </div>
+                        <section v-if="isAuto">
+                            <section class="main__account">
+                                <div class="main__information">
+                                    <div class="main__avatar">
+                                        <a href="#">
+                                            <svg width="42" height="41" viewBox="0 0 42 41" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <circle cx="18" cy="18" r="17.5" fill="url(#pattern0)"
+                                                    stroke="#E2E2E2" />
+                                                <circle cx="32" cy="31" r="9.5" fill="#4267B2" stroke="white" />
+                                                <path
+                                                    d="M34.3242 31.875L34.5977 30.0781H32.8594V28.9062C32.8594 28.3984 33.0938 27.9297 33.875 27.9297H34.6758V26.3867C34.6758 26.3867 33.9531 26.25 33.2695 26.25C31.8438 26.25 30.9063 27.1289 30.9063 28.6914V30.0781H29.3047V31.875H30.9063V36.25H32.8594V31.875H34.3242Z"
+                                                    fill="white" />
+                                                <defs>
+                                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox"
+                                                        width="1" height="1">
+                                                        <use xlink:href="#image0_4_463"
+                                                            transform="translate(-0.254717) scale(0.0188679)" />
+                                                    </pattern>
+                                                    <image id="image0_4_463" width="80" height="53"
+                                                        xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4gIcSUNDX1BST0ZJTEUAAQEAAAIMbGNtcwIQAABtbnRyUkdCIFhZWiAH3AABABkAAwApADlhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAAF5jcHJ0AAABXAAAAAt3dHB0AAABaAAAABRia3B0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAAEBnVFJDAAABzAAAAEBiVFJDAAABzAAAAEBkZXNjAAAAAAAAAANjMgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0ZXh0AAAAAElYAABYWVogAAAAAAAA9tYAAQAAAADTLVhZWiAAAAAAAAADFgAAAzMAAAKkWFlaIAAAAAAAAG+iAAA49QAAA5BYWVogAAAAAAAAYpkAALeFAAAY2lhZWiAAAAAAAAAkoAAAD4QAALbPY3VydgAAAAAAAAAaAAAAywHJA2MFkghrC/YQPxVRGzQh8SmQMhg7kkYFUXdd7WtwegWJsZp8rGm/fdPD6TD////bAIQAAgICAwMDAwQEAwUFBQUFBwYGBgYHCgcIBwgHCg8KCwoKCwoPDhEODQ4RDhgTERETGBwYFxgcIh8fIispKzg4SwECAgIDAwMDBAQDBQUFBQUHBgYGBgcKBwgHCAcKDwoLCgoLCg8OEQ4NDhEOGBMRERMYHBgXGBwiHx8iKykrODhL/8AAEQgANQBQAwEiAAIRAQMRAf/EAIoAAAICAgMBAAAAAAAAAAAAAAcIAAYECQIDBQoQAAICAQMDAwIFAwQDAAAAAAECAwQFAAYREiExBxNBIlEIFBUjMjNCgUNxgqFhY5EBAAIDAQAAAAAAAAAAAAAAAAQFAgMGAREAAQMDAwQBBQEAAAAAAAAAAQACEQMEIQUSMSIyQVETUmGBkbFx/9oADAMBAAIRAxEAPwDatBlpSZomVozz+2/9qA/76qmR3nHRyJqW0laRhzE3Qf3SPsRqpQZYS2K1h5oyTGFcpyxPbkMSewAOshdxSqkYyHtVSFcraDAkRnsv/wB1kVsNoVow/qeZa7m+8VdobBjL9fIYj4AA/wAaz8pu2OlXltCP3fZjWWeGMkygOeAdAram5bn57JY2tWllip2FEdu0gK2EKguVYAfwY8AauUmere1m/wBRKRxU3CT9DM7P18FWP28+Bq4tO7ieDgqsAQDIysT1b9bsfsXHVrczl55iyVqz8cyMO7dXPhV++l3wX41Fs34pb2Fhji8c13PIJ+SG7NpD/wAanqHfn9SLlKSOSCrjoI4Kat4dGAdn/wAnSmx73lU8CUjT2z0yk6i0ubuLszKS3eovp1nNbgNxkL6dsPvWhl6dW5Sm9yGWH34p0jbp8+P99XGxmoRMjyRFVli+W8njn/vWtz8Du+8idjQG28grvet/l2P9NUAHLP8APT1acy7lMhPUEnBMwQHiHnoYt9g2ktWn8dR7AT0uhOaJFWmx/tsoo0LCRlpSQAy8tIO47fJ1hLkDZkmf3kmgbn2/kDp0NJ81f/YiHS4MPTMg44Vm7DnXjYCSDERz46J2PQGaJJGLKEJ57PqoPKuFIZQUyO+8ZVysFSS4JIbcNhVkROpY3HHKgjseNXUb2wMVT81PKBGOzGYfz4Xk8A/B0ldrJLcuCrR9yiKkM1anIzkRlJF+qSUSeWB7KNUX1S9Ub2wcFjpp7MdzMXa4rIJFDRpFWPacD76JbZb3NAdzwPKGbWdHb57vEQnCz3qg25aOShxNt6IYrWb9RiCwKF4cSAKQT1DxpJt//i/3bvHdce2Nm2q9GMJJDLkPmw8KcyOp4boTt2bSTbp9b9z5qK5NdyM0s8g9scnhY18Eqo12fhjhil9QcSr9YX2LPPSeOQYyCD9wQeCNaPTdJhx3gemjkSk2qXzWfEKdQuJy8gbcek7d/YVv1N2Hhap3BBlcpVyM0BtTNw9iR+/UsnBbhR20kmV9IMkm7pcDVnSMCxLAti0wSMtCelipH8u/ZV8nVnyw3DszdG5sFh5baVwfzMChyoWA/UrEjwV+GGq/6XeoCZLdEcO5MnIa1qvPXSw7EmCeQho5+r79QHJ0Hb2d7ZuuYe0s3PdEfVmQE6ubrSr8WbHMcyodjJnjZiCVui9PsThdvbXwmKhilhpVIoqZkYK3vSMOWdQO6nr886PV3N2YayBVnWZYm6HPHSxQf3Bfv8Aa127Ty2aw1urQ3HvCPI2M3YAhq1lCQRxxIWDA8c9b8ck6M2S33ctZl8Ka80LNTVxOW6YJyB/TQt/eR5I0i+N9UzM8ku8H9phdU2W1QMGBiAclv2MJnMJvClkK8rmvNC7cK0dgCFnA8soOsq7dpKvRKhQckRlU60IPfnkfOl3xtmhFmLbizD760YU/LPJ7gEbDt/LuQdV3F+pAguWVpZavDFBalS5A0p+k8AkJyOB555Ou0qRbJjcI4Kpqva44dtylssbunTMyVIsFYtwXLsheay/7UDEdwwHPUDxpCvWrf826dzXJk6xBWUVoU554jj7E/wCTpq/UTc9DDYTI5SgDDO6NG6uxDvK/0KxA7Fh99a9PfdPnn5DfOtFo1EHc/aMYH+rNahcbQGhx6smPQXVLMzc9+x86YX8Lddm3zDMP9CnM5/5cLpdDppfw3wCh+s5eTsiqIAf/AAv1trRMO1wKQAbnZRx9RdxVo856lWenl6G3a1RG+zzEkjWu6oyxyQs6daqVLLzxyPtzplLufmzW0vUfMMODkMnCOf8A1x+BpbJZ2YKvAVV8Aa67IafcqTz1c8RCP8uTx+EwmDzNTL2LeTtXh0NYYEVYqxDFehfBJ7E62E5DPpPLTeSN/wBQeqbKtCpeMdfA93rJHHBPxrTqsh6Ogn6e5/ydPX6Z7+kzu0EiZ2TIYt0X8yPiKPuoJ+zAdxpHqdnTcaB29IO0xjlOdPv3gVpdLj1Ccyj/AIDdtHISZ9LU2Ws2ahWu1oRdHSh+pkik+VB886xamShpCGOOCM+HmWUFQTJ/ULdvq7eNULFb8py4mf8AN5KSeGxIxMsUZ6S7d+nt5417hqZC7kzciyYhhFeOBovbDKenz5+Toixt6duSInEkrlxXfWAM/hJv6qbnvXMZj4LJR299j7ir0npQdl0CZDyqnk99TU1PTQBbsgeT/Uuu3EvMnwF06b/YdNKnphuKdCeo1Xl/5MOCdTU0VVOP0qaHd+Chph2I9LM2o8HJoP8AoaBzj6m1NTVw7R+VGr3LidGn02sS1cFumdZXC810ZEbp6hyfnU1NC3ImnB+pv9U7c9aM+2cnErVZYKiwpGBE0KnmN0lXgjg6Mwn9sRLGoRVXgL58ampoCxJPyAmYR9TDaf3X/9k=" />
+                                                </defs>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="main__name-avatar">
+                                        <h5>Lotusprayer Store</h5>
+                                        <span>
+                                            <span>
+                                                <svg width="12" height="9" viewBox="0 0 12 9" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.1953 0.46875L4.03125 6.63281L1.78125 4.35938C1.66406 4.26562 1.47656 4.26562 1.38281 4.35938L0.703125 5.03906C0.609375 5.13281 0.609375 5.32031 0.703125 5.4375L3.84375 8.55469C3.96094 8.67188 4.125 8.67188 4.24219 8.55469L11.2734 1.52344C11.3672 1.42969 11.3672 1.24219 11.2734 1.125L10.5938 0.46875C10.5 0.351562 10.3125 0.351562 10.1953 0.46875Z"
+                                                        fill="#35B26F" />
+                                                </svg>
+                                            </span>
+                                            Connected
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="main__change-account">
+                                    <a href="#">
+                                        Change Account
+                                    </a>
+                                </div>
+                            </section>
+                            <section class="main__body">
+                                <div class="main__options">
+                                    <label for="">Select Business Account</label>
+                                    <select name="" id="" v-model="businessAccount">
+                                        <option :value="item.id" v-for="item in listBusinessAccount" :key="item.id">
+                                            {{item.id}} - {{item.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="main__options">
+                                    <label for="">Select Pixel</label>
+                                    <select name="" id="" :disabled="!businessAccount">
+                                        <option v-if="!businessAccount">Select your pixel
+                                        </option>
+                                        <option v-for="item in listFiltersPixel" :key="item.id">
+                                            {{ item.parentId}} -
+                                            {{ item.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div v-if="listFiltersPixel.length === 0 && businessAccount" class="main__warning">
+                                    <div class="main__times-circle">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10 0.479167C4.64844 0.479167 0.3125 4.8151 0.3125 10.1667C0.3125 15.5182 4.64844 19.8542 10 19.8542C15.3516 19.8542 19.6875 15.5182 19.6875 10.1667C19.6875 4.8151 15.3516 0.479167 10 0.479167ZM10 18.6042C5.35156 18.6042 1.5625 14.8542 1.5625 10.1667C1.5625 5.55729 5.3125 1.72917 10 1.72917C14.6094 1.72917 18.4375 5.51823 18.4375 10.1667C18.4375 14.8151 14.6484 18.6042 10 18.6042ZM13.6719 7.47135C13.8672 7.27604 13.8672 7.0026 13.6719 6.80729L13.3594 6.49479C13.1641 6.29948 12.8906 6.29948 12.6953 6.49479L10 9.1901L7.26563 6.49479C7.10938 6.29948 6.79688 6.29948 6.60156 6.49479L6.28906 6.80729C6.09375 7.0026 6.09375 7.27604 6.28906 7.47135L8.98438 10.1667L6.28906 12.901C6.09375 13.0573 6.09375 13.3698 6.28906 13.5651L6.60156 13.8776C6.79688 14.0729 7.10938 14.0729 7.26563 13.8776L10 11.1823L12.6953 13.8776C12.8906 14.0729 13.1641 14.0729 13.3594 13.8776L13.6719 13.5651C13.8672 13.3698 13.8672 13.0573 13.6719 12.901L10.9766 10.1667L13.6719 7.47135Z"
+                                                fill="#F2545D" />
+                                        </svg>
+                                    </div>
+                                    <div class="main__missing">
+                                        <h3 class="main__missing-title">Missing pixel</h3>
+                                        <span class="main__missing-content">You don't have any Facebook Pixels in this
+                                            Business
+                                            Account. Change Business
+                                            Account
+                                            or
+                                            <a href="#">Create New Facebook Pixel</a>
+                                            first.</span>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+                        <section v-else>
+                            <div class="main__options">
+                                <label for="">Name this pixel</label>
+                                <input type="text" name="" id="" placeholder="Input your pixel name"
+                                    v-model="manualFields.manualInputName" ref="inputName">
+                                <div class="feedback" ref="inputNameFeedback">string is not
+                                    contain number</div>
+                            </div>
+                            <div class="main__options">
+                                <label for="">Enter Facebook Pixel ID</label>
+                                <input type="text" name="" id="" placeholder="Input your pixel id"
+                                    v-model="manualFields.manualInputId" ref="inputId">
+                                <div class="feedback" ref="inputIdFeedback">number is not string</div>
+                            </div>
+                        </section>
+                        <div class="main__options">
+                            <label for="">Target</label>
+                            <select name="" id="">
+                                <option value="">Entire page</option>
+                            </select>
+                        </div>
+                        <section class="main__conversion">
+                            <div class="main__contact">
+                                <h3>Conversion API</h3>
+                                <span>Facebook conversions API will help you collect accurate data and improve the
+                                    performance of your Facebook ads in a post-iOS 14 update world.
+                                    <a href="#">Learn more</a>
+                                </span>
+                            </div>
+                            <div class="center">
+                                <input type="checkbox" name="" id="" />
+                            </div>
+                        </section>
+                        <div class="main__upgrade">
+                            <a href="#">
+                                <img :src="isAuto ? './assets/svg/Group 13570.svg' : './assets/svg/Group 13570 (1).svg' "
+                                    alt="">
+                                <span>
+                                    Please <strong> UPGRADE </strong> your plan to use Conversion API
+                                </span>
+                            </a>
+                        </div>
+                    </main>
+                </div>
+                <div class="final">
+                    <div class="inner final__inner">
+                        <div>
+                            <a href="#" class="btn btn--gray" @Click="handleCancel">Cancel</a>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn--primary" @Click.preventDefault="handlesubmit">Save</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

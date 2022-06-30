@@ -1,0 +1,9 @@
+.final {
+  border-top: 1px solid $blue-gray-05;
+  padding: 35px 0;
+
+  &__inner {
+    @include flex(center, space-between);
+    gap: 0 20px;
+  }
+}

@@ -1,0 +1,166 @@
+.main {
+  margin-bottom: 29px;
+
+  &__input-pixel {
+    @include flex(center, space-between);
+  }
+
+  &__dashboard {
+    @include flex(center, start);
+    background: $white-color;
+    border: 1px solid $blue-gray-05;
+    border-radius: 4px;
+    padding: 0 10px;
+    width: 48%;
+    margin-bottom: 20px;
+
+    & > label {
+      padding: 10px 10px 10px 7px;
+      width: 100%;
+      font-weight: 500;
+      line-height: 17px;
+      color: $dark-gray-03;
+    }
+
+    &:hover,
+    &:hover > label,
+    & > input[type="radio"]:checked + label,
+    & > input[type="radio"]:checked {
+      color: $blue-branding;
+      border-color: $blue-branding;
+    }
+  }
+
+  &__active {
+    border-color: $blue-branding;
+  }
+
+  &__account {
+    @include flex(center, space-between);
+    background: $light-gray-05;
+    border: 1px solid $light-gray-03;
+    border-radius: 4px;
+    padding: 13px;
+    margin-bottom: 20px;
+  }
+
+  &__information {
+    @include flex(center, start);
+    gap: 0 10px;
+  }
+
+  &__name-avatar {
+    & > h5 {
+      font-weight: 600;
+      line-height: 17px;
+      color: $dark-gray-01;
+    }
+
+    & > span {
+      font-size: 12px;
+      line-height: 15px;
+      color: $success-color;
+    }
+  }
+
+  &__change-account > a {
+    color: $dark-gray-02;
+    padding: 11px 13px;
+    background: $white-color;
+    line-height: 114%;
+  }
+  &__change-account > a:hover {
+    background: rgb(184, 184, 184);
+    color: $white-color;
+  }
+
+  &__options {
+    & > label {
+      display: block;
+      font-weight: 500;
+      line-height: 114%;
+      color: $dark-gray-01;
+    }
+
+    & > select,
+    & > input[type="text"] {
+      background: $white-color;
+      border: 1px solid $blue-gray-05;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 4px;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      color: $dark-gray-01;
+    }
+
+    & > input[type="text"]::placeholder {
+      line-height: 114%;
+      color: $dark-gray-03;
+    }
+  }
+
+  &__warning {
+    @include flex(start, start);
+    padding: 14px 18px;
+    background: rgba($color: $light-error, $alpha: 0.2);
+    border-radius: 4px;
+    gap: 0 11px;
+    margin-bottom: 20px;
+  }
+
+  &__missing-title {
+    font-weight: 600;
+    line-height: 143%;
+    color: $secondary-text;
+  }
+
+  &__missing-content {
+    font-size: 12px;
+    line-height: 133%;
+    color: $secondary-text;
+    text-align: center;
+
+    & > a {
+      color: $blue-branding;
+      text-decoration: underline;
+    }
+  }
+
+  &__conversion {
+    @include flex(start, space-between);
+    gap: 0 20px;
+    margin-bottom: 25px;
+  }
+
+  &__contact {
+    & > h3 {
+      font-weight: 600;
+      line-height: 114%;
+      color: $dark-gray-01;
+      margin-bottom: 3px;
+    }
+
+    & > span {
+      font-size: 12px;
+      line-height: 15px;
+      color: $dark-gray-03;
+
+      & > a {
+        color: $blue-branding;
+      }
+    }
+  }
+
+  &__upgrade > a {
+    @include flex(center, start);
+    width: 100%;
+    background: #fffefc;
+    border: 1px solid #ff9600;
+    border-radius: 4px;
+    font-weight: 500;
+    line-height: 114%;
+    color: #ff9600;
+    padding: 0 20px;
+  }
+}

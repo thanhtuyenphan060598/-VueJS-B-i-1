@@ -1,0 +1,15 @@
+.heading {
+  display: flex;
+  align-items: center;
+  padding-top: 33px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e8ef;
+  margin-bottom: 20px;
+
+  &__title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: $dark-gray-01;
+  }
+}
