@@ -101,38 +101,69 @@ var app = new Vue({
     },
   },
   methods: {
+    //Remove all fields
     handleCancel() {
       this.businessAccount = null;
 
       this.manualFields.manualInputName = null;
       this.manualFields.manualInputId = null;
     },
+    //feedback input fields manual pixel
+    handleInputFeedback(elementInput, elementMessage, toggle, statusDisplay) {
+      if (typeof toggle !== "string" || typeof statusDisplay !== "string")
+        return;
+      toggle === "add"
+        ? elementInput.classList.add("invalid--feedback")
+        : elementInput.classList.remove("invalid--feedback");
+
+      elementMessage.style.display = statusDisplay;
+    },
+
+    // handle input validate feedback
     handleValidate() {
       if (
         /[0-9$&+,:;=?@#|'<>.^*()%!-]/.test(this.manualFields.manualInputName) ||
         this.manualFields.manualInputName === null
       ) {
-        this.$refs.inputName.classList.add("invalid--feedback");
-        this.$refs.inputNameFeedback.style.display = "block";
+        this.handleInputFeedback(
+          this.$refs.inputName,
+          this.$refs.inputNameFeedback,
+          "add",
+          "block"
+        );
         this.isSubmit.isName = false;
       } else {
-        this.$refs.inputName.classList.remove("invalid--feedback");
-        this.$refs.inputNameFeedback.style.display = "none";
+        this.handleInputFeedback(
+          this.$refs.inputName,
+          this.$refs.inputNameFeedback,
+          "remove",
+          "none"
+        );
         this.isSubmit.isName = true;
       }
       if (
         /[^0-9]/.test(this.manualFields.manualInputId) ||
         this.manualFields.manualInputId === null
       ) {
-        this.$refs.inputId.classList.add("invalid--feedback");
-        this.$refs.inputIdFeedback.style.display = "block";
+        this.handleInputFeedback(
+          this.$refs.inputId,
+          this.$refs.inputIdFeedback,
+          "add",
+          "block"
+        );
         this.isSubmit.isId = false;
       } else {
-        this.$refs.inputId.classList.remove("invalid--feedback");
-        this.$refs.inputIdFeedback.style.display = "none";
+        this.handleInputFeedback(
+          this.$refs.inputId,
+          this.$refs.inputIdFeedback,
+          "remove",
+          "none"
+        );
         this.isSubmit.isId = true;
       }
     },
+
+    //submit form if validate not errors
     handlesubmit() {
       this.handleValidate();
       if (this.isSubmit.isName && this.isSubmit.isId) {
